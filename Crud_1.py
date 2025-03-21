@@ -112,3 +112,6 @@ def menu():
 # Ejecutar el menú si el script se ejecuta directamente
 if __name__ == "__main__":
     menu()
+
+# Cerrar conexión al finalizar
+conn.close()
