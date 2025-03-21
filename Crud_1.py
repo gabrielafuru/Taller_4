@@ -109,3 +109,6 @@ def menu():
             break
         else:
             print("Opción no válida, intente de nuevo.")
+# Ejecutar el menú si el script se ejecuta directamente
+if __name__ == "__main__":
+    menu()
