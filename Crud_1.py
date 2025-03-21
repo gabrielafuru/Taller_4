@@ -64,3 +64,48 @@ def delete_user(user_id):
     cursor.execute("DELETE FROM users WHERE id = ?", (user_id,))
     conn.commit()
     print("Usuario eliminado.")
+
+# Menú interactivo
+def menu():
+    while True:
+        print("\nMenú CRUD:")
+        print("1. Crear usuario")
+        print("2. Leer usuarios")
+        print("3. Actualizar teléfono")
+        print("4. Actualizar email")
+        print("5. Actualizar todos los datos")
+        print("6. Eliminar usuario")
+        print("7. Salir")
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            name = input("Nombre: ")
+            phone = input("Teléfono: ")
+            email = input("Email: ")
+            city = input("Ciudad: ")
+            address = input("Dirección: ")
+            create_user(name, phone, email, city, address)
+        elif opcion == "2":
+            read_users()
+        elif opcion == "3":
+            user_id = int(input("ID del usuario: "))
+            new_phone = input("Nuevo teléfono: ")
+            update_phone(user_id, new_phone)
+        elif opcion == "4":
+            user_id = int(input("ID del usuario: "))
+            new_email = input("Nuevo email: ")
+            update_email(user_id, new_email)
+        elif opcion == "5":
+            user_id = int(input("ID del usuario: "))
+            phone = input("Teléfono: ")
+            email = input("Email: ")
+            city = input("Ciudad: ")
+            address = input("Dirección: ")
+            update_user(user_id, phone, email, city, address)
+        elif opcion == "6":
+            user_id = int(input("ID del usuario a eliminar: "))
+            delete_user(user_id)
+        elif opcion == "7":
+            break
+        else:
+            print("Opción no válida, intente de nuevo.")
